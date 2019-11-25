@@ -1,15 +1,24 @@
-version: '3.7'
+version: "3.7"
 
 services:
   frontend:
-    build: ./
+    build: ./client
     volumes:
-      - ./:/app:cached
+      - ./client:/app:cached
       - frontend:/app/dist
     ports:
-      - '3000:3000'
-      - '8080:8080'
+      - "3000:3000"
+      - "8080:8080"
+    command: sh -c "yarn && yarn start"
+  api:
+    build: ./api
+    volumes:
+      - ./api:/app:cached
+      - api:/app/dist
+    ports:
+      - "8000:8000"
     command: sh -c "yarn && yarn start"
 
 volumes:
   frontend:
+  api:

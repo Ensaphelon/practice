@@ -1,0 +1,12 @@
+{
+  "name": "api",
+  "version": "0.0.1",
+  "description": "Server",
+  "author": "Ramil Musaev",
+  "scripts": {
+    "start": "json-server --host api --port 8000 --watch db.json"
+  },
+  "dependencies": {
+    "json-server": "^0.15.1"
+  }
+}
