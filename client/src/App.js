@@ -1,14 +1,29 @@
 import 'reset-css';
-import React from 'react';
-import Button from '@material-ui/core/Button';
+import React, { useState } from 'react';
+import { Provider } from 'react-redux';
+
+import createStore from 'store';
+import { useTextInput } from 'hooks';
+
+import Users from 'containers/Users';
+
+import UsersComponents from 'components/Users';
+
+import { getUsersLoadingParams } from 'utils/loadingParams';
+
+const store = createStore();
 
 const App = () => {
-  fetch('http://localhost:8000/posts');
+  const [searchValue, changeSearchValue] = useTextInput('');
 
   return (
-    <Button variant="contained" color="primary">
-      Application root.
-    </Button>
+    <Provider store={store}>
+      <Users loadingParams={getUsersLoadingParams({ searchValue })}>
+        {users => (
+          <UsersComponents.List searchValue={searchValue} onChangeSearchValue={changeSearchValue} items={users} />
+        )}
+      </Users>
+    </Provider>
   );
 };
 
