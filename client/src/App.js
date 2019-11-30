@@ -1,15 +1,11 @@
 import 'reset-css';
 import React from 'react';
-import Button from '@material-ui/core/Button';
+import { Button } from 'grommet';
 
 const App = () => {
   fetch('http://localhost:8000/posts');
 
-  return (
-    <Button variant="contained" color="primary">
-      Application root.
-    </Button>
-  );
+  return <Button label="Submit" variant="contained" color="primary" />;
 };
 
 export default App;
