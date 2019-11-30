@@ -22,8 +22,10 @@ export default usersSlice.reducer;
 export const useUsersActions = () => {
   const dispatch = useDispatch();
 
-  const fetchUsers = async () => {
-    const response = await fetch('http://localhost:8000/users');
+  const fetchUsers = async ({ params }) => {
+    const { name } = params;
+
+    const response = await fetch(`http://localhost:8000/users/?q=${name}`);
     const users = await response.json();
 
     dispatch(setUsers({ users }));

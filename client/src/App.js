@@ -1,17 +1,26 @@
 import 'reset-css';
-import React from 'react';
+import React, { useState } from 'react';
 import { Provider } from 'react-redux';
 
 import store from 'store';
 
-import Users from 'containers/Users';
+import UsersContainer from 'containers/Users';
 
-import UsersList from 'components/UsersList';
+import Users from 'components/Users';
+
+const { Filter, List } = Users;
 
 const App = () => {
   return (
     <Provider store={store}>
-      <Users>{users => <UsersList items={users} />}</Users>
+      <UsersContainer>
+        {(users, searchValue, onChangeSearchValue) => (
+          <>
+            <Filter searchValue={searchValue} onChangeSearchValue={onChangeSearchValue} />
+            <List items={users} />
+          </>
+        )}
+      </UsersContainer>
     </Provider>
   );
 };
