@@ -1,7 +1,7 @@
 {
-  "name": "posts",
+  "name": "users",
   "version": "0.0.1",
-  "description": "Application with posts",
+  "description": "Application with users",
   "author": "Ramil Musaev",
   "main": "index.js",
   "scripts": {
