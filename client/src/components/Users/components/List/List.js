@@ -6,15 +6,17 @@ const columns = [
   {
     property: 'name',
     header: <Text>Name</Text>,
-    primary: true,
+    primary: false,
   },
   {
     property: 'email',
     header: <Text>Email</Text>,
+    primary: true,
   },
   {
     property: 'phone',
     header: <Text>Phone</Text>,
+    primary: false,
   },
 ];
 
