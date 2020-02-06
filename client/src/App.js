@@ -1,11 +1,21 @@
 import 'reset-css';
 import React from 'react';
-import { Button } from 'grommet';
+
+import PostsContainer from 'containers/Posts';
 
 const App = () => {
-  fetch('http://localhost:8000/posts');
-
-  return <Button label="Submit" variant="contained" color="primary" />;
+  return (
+    <PostsContainer>
+      {({ posts, loading }) => (
+        <div>
+          {loading && <div>Loading...</div>}
+          {posts.map(post => (
+            <div>{post.id}</div>
+          ))}
+        </div>
+      )}
+    </PostsContainer>
+  );
 };
 
 export default App;
