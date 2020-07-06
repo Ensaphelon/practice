@@ -1,11 +1,16 @@
 import 'reset-css';
 import React from 'react';
-import { Button } from 'grommet';
+
+import PostsContainer from 'containers/PostsContainer';
+
+import PostsList from 'components/PostsList';
 
 const App = () => {
-  fetch('http://localhost:8000/posts');
-
-  return <Button label="Submit" variant="contained" color="primary" />;
+  return (
+    <PostsContainer>
+      {({ posts, isLoading, loadPosts }) => <PostsList loadPosts={loadPosts} posts={posts} isLoading={isLoading} />}
+    </PostsContainer>
+  );
 };
 
 export default App;
